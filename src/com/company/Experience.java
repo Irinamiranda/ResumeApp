@@ -52,6 +52,8 @@ public class Experience {
         this.description = description;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Company: " + getCompany() + " Title: " + getTitle() + " Date: " + getDate() + " Description: " + getDescription();
+    }
 }
