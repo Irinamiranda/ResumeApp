@@ -16,9 +16,18 @@ public class Main {
         skills.add("Advanced");
         skills.add("Expert");
 
+        ArrayList<Education> educations = new ArrayList<>();
+        ArrayList<Experience> experiences = new ArrayList<>();
+
         ArrayList<Resume> resumes = new ArrayList<>();
-        resumes.add( new Resume("Irina", "Smirnova", "is@gmail.com", "571 425 9631"));
-        resumes.add(createResume());
+
+        while (true) {
+            resumes.add(createResume(educations, experiences, skills));
+            for (Resume eachResume : resumes) {
+                System.out.println(eachResume);
+            }
+        }
+
 
 
     }
@@ -103,7 +112,7 @@ public class Main {
 
         while (true) {
 
-            System.out.println("add education? y/n ");
+            System.out.println("Would you like to add education or experience? y/n ");
 
             String answer = scan.nextLine();
 
@@ -112,6 +121,7 @@ public class Main {
                 Education newEducation = createEducation();
 
                 educations.add(newEducation);
+                newResume.getEducations().add(createEducation());
 
             } else {
 
@@ -127,17 +137,19 @@ public class Main {
                 Experience newExperience = createExperience();
 
                 experiences.add(newExperience);
+                newResume.getExperiences().add(createExperience());
 
             } else {
 
                 break;
 
             }
-
         }
-        newResume.getEducations().add(createEducation());
-        newResume.getExperiences().add(createExperience());
-        newResume.getSkills().add(selectSkills());
+
+
+
+
+        newResume.getSkills().add(selectSkills(skills));
 
         return newResume;
 

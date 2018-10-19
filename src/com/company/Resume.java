@@ -25,6 +25,9 @@ public class Resume {
         this.lastName = lastName;
         this.eMail = eMail;
         this.phone = phone;
+        this.educations = new ArrayList<>();
+        this.experiences = new ArrayList<>();
+        this.skills = new ArrayList<>();
 
     }
 
